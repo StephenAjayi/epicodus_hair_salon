@@ -14,6 +14,11 @@ describe(Stylist) do
       expect(test_stylist.id()).to(eq(1))
     end
   end
+   describe('.all') do
+    it('is empty at first') do
+      expect(Stylist.all()).to(eq([]))
+    end
+  end
   
 end
     
