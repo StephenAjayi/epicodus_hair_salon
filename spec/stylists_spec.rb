@@ -10,8 +10,9 @@ describe(Stylist) do
   
   describe('#id') do
     it('returns the ID of stylist') do
-      test_stylist = Stylist.new(:name => "Jesse", :id => 1)
-      expect(test_stylist.id()).to(eq(1))
+      test_stylist = Stylist.new(:name => "Jesse", :id => nil)
+      test_stylist.save()
+      expect(test_stylist.id()).to(be_an_instance_of(Fixnum))
     end
   end
    
@@ -55,6 +56,7 @@ describe(Stylist) do
        expect(stylist.name()).to(eq("Brad"))
      end
    end
+  
 end
     
   
