@@ -26,6 +26,11 @@ class Stylist
     self.name().eql?(another_stylist.name()) && self.id().eql?(another_stylist.id())
   end
   
+   define_singleton_method(:find) do |id|
+    result = DB.exec("SELECT * FROM stylists WHERE id = #{id};")
+    name = result.first().fetch("name")
+    Stylist.new({:name => name, :id => id})
+  end
 end
    
     
