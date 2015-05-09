@@ -1,0 +1,18 @@
+<h1>Welcome to Envy Salon</h1><br />
+
+<h3>Current Stylist List </h3><br />
+
+<% if @stylists.any?() %>
+  <h4>Here are the stylists at Envy Salon:</h4>
+
+  <ul>
+    <% @stylists.each() do |stylist| %>
+      <li><a href="/stylists/<%= stylist.id()%>"><%= stylist.name() %></a> </li>
+    <% end %>
+  </ul>
+
+<% else %>
+
+    <p>There are no stylists yet!<a href="/stylists"> Add a new Stylist here.</a></p>
+
+<% end %>

@@ -1,0 +1,35 @@
+<h1>Welcome to the stylists page!</h1>
+
+
+<p>
+  <form action="/stylists" method="post">
+    <div class="form-group">
+      <label for="stylist">Add a Stylist</label>
+      <input type="text" name="stylist" class="form-control" required>
+    </div>
+    <button name="add_stylist">Add</button>
+  </form>
+</p>
+
+
+<h4>Here are our current stylists:</h4>
+
+<% if @stylists.any?() %>
+<p>Click on a stylist to see information about them: </p>
+    <ul>
+      <% @stylists.each() do |stylist| %>
+      <li><a href="/stylist/<%=stylist.id%>"> <%= stylist.name() %> </a></li>
+      <% end %>
+    </ul>
+
+<% else %>
+
+  <h4>Currently there are no stylists, add an stylist above!</h4>
+
+<% end %>
+
+
+
+
+
+

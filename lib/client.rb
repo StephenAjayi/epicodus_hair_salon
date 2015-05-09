@@ -16,10 +16,16 @@ class Client
     end
     clients
   end
-   define_method(:save) do
+   
+  define_method(:save) do
      DB.exec("INSERT INTO clients (name, stylist_id) VALUES ('#{@name}', #{@stylist_id});")
   end
+  
   define_method(:==) do |another_client|
-    self.name().==(another_client.name())
-    end
+     self.name().==(another_client.name())
+  end
+  define_method(:update) do |attributes|
+    @name = attributes.fetch(:name, @name)
+    DB.exec("UPDATE clients SET name = '#{@name}' WHERE id = #{self.id};")
+   end
 end
