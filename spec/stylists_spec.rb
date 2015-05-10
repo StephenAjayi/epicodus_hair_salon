@@ -57,7 +57,7 @@ describe(Stylist) do
      end
    end
   describe("#clients") do
-    it("returns an array of clientss for a stylist") do
+    it("returns an array of clients for a stylist") do
       test_stylist = Stylist.new({:name => "James", :id => nil})
       test_stylist.save()
       test_client = Client.new({:name => "Brooke", :stylist_id => test_stylist.id()})
